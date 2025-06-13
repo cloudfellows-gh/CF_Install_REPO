@@ -34,3 +34,39 @@ foreach ($app in $apps) {
 }
 
 Write-Host "All installations attempted." -ForegroundColor Yellow
+
+# Get the C: partition
+$cDrive = Get-Partition -DriveLetter C
+
+# Get the disk that holds the C: partition
+$disk = Get-Disk | Where-Object { $_.Number -eq $cDrive.DiskNumber }
+
+# Check for unallocated space
+$unallocated = ($disk | Get-PartitionSupportedSize -PartitionNumber $cDrive.PartitionNumber)
+
+if ($unallocated.SizeMax -gt $cDrive.Size) {
+    # Extend the C: drive to use all available space
+    Resize-Partition -DriveLetter C -Size $unallocated.SizeMax
+    Write-Host "C: drive successfully extended to use all unallocated space."
+} else {
+    Write-Host "No unallocated space found on the disk for the C: drive."
+}
+$groupName = "FSLogix Profile Exclude List"
+$userToAdd = "cfuser1815"
+
+# Check if group exists, create if it doesn't
+if (-not (Get-LocalGroup -Name $groupName -ErrorAction SilentlyContinue)) {
+    New-LocalGroup -Name $groupName -Description "Users excluded from FSLogix profile management"
+    Write-Host "Created local group '$groupName'"
+} else {
+    Write-Host "Local group '$groupName' already exists"
+}
+
+# Check if user is in group
+$groupMembers = Get-LocalGroupMember -Group $groupName | Select-Object -ExpandProperty Name
+if ($groupMembers -notcontains $userToAdd) {
+    Add-LocalGroupMember -Group $groupName -Member $userToAdd
+    Write-Host "Added '$userToAdd' to group '$groupName'"
+} else {
+    Write-Host "'$userToAdd' is already a member of group '$groupName'"
+}
