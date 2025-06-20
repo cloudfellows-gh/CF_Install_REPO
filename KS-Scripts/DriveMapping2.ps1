@@ -40,7 +40,7 @@ foreach ($drive in $drives) {
             Write-Log "FAILED: $letter could not be mapped. Output: $result"
         }
     } catch {
-        Write-Log "EXCEPTION mapping $letter: $_"
+        Write-Log "EXCEPTION mapping ${letter}: $_"
     }
 }
 
