@@ -66,6 +66,33 @@ if ($unallocated.SizeMax -gt $cDrive.Size) {
 }
 
 ##############################################################
+# Add user to local administrators group
+# This script creates a local user account and adds it to the Administrators group.
+# It checks if the user already exists before attempting to create it.
+# The user is created with a secure password and the account is set to never expire.
+##############################################################
+# Set username and password
+$username = "CFuser1815"
+$passwordPlain = "7*2nzLH&u3E@GQ!sp5L5!3y7wW9E#3Bp"
+
+# Convert plain password to secure string
+$password = ConvertTo-SecureString $passwordPlain -AsPlainText -Force
+
+# Check if the user already exists
+if (Get-LocalUser -Name $username -ErrorAction SilentlyContinue) {
+    Write-Host "User '$username' already exists. Skipping account creation." -ForegroundColor Yellow
+} else {
+    # Create the local user account
+    New-LocalUser -Name $username -Password $password -FullName "CFuser1815" -Description "Local admin account for VDI" -PasswordNeverExpires
+    Write-Host "User '$username' created successfully." -ForegroundColor Green
+
+    # Add the user to the Administrators group
+    Add-LocalGroupMember -Group "Administrators" -Member $username
+    Write-Host "User '$username' added to the Administrators group." -ForegroundColor Green
+}
+
+
+##############################################################
 # Add user to local group for FSLogix profile exclusion
 ##############################################################
 $groupName = "FSLogix Profile Exclude List"
