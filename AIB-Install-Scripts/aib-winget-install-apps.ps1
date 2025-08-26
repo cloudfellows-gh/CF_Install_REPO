@@ -27,7 +27,6 @@ $apps = @(
     @{ name = "Microsoft.VCRedist.2015+.x64"; },
     @{ name = "Google.Chrome"; },
     @{ name = "Microsoft.Powershell"; },
-    @{ name = "Microsoft.PowerBI"; },
     @{ name = "TrackerSoftware.PDF-XChangeEditor"; },
     @{ name = "VideoLAN.VLC"; }
 )
