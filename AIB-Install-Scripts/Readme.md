@@ -1,0 +1,1 @@
+https://raw.githubusercontent.com/cloudfellows-gh/CF_Install_REPO/refs/heads/main/AIB-Install-Scripts/aib-winget-install-apps.ps1

@@ -2,12 +2,12 @@
 $ErrorActionPreference = 'SilentlyContinue'
 
 # Initialize Logging
-$LogPath = "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\Upgrade_To_Win11_24H2.log"         
+$LogPath = "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AVD-Installation.log"
 Function Write-Log {
     Param([string]$Message)
     "$((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')) - $Message" | Out-File -FilePath $LogPath  -Append
 }
-Write-Log "====================== Upgrading Windows 10 to Windows 11 24H2 Using Intune Proactive Detection Script $(Get-Date -Format 'yyyy/MM/dd') ==================="
+Write-Log "====================== Installation log for AVD servers $(Get-Date -Format 'yyyy/MM/dd') ==================="
 
 # Install required applications using WinGet in SYSTEM context
 # Assumes WinGet is already available (included in Windows 11 23H2 images)
