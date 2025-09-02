@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Generated 2025-09-01 from https://raw.githubusercontent.com/aaronparker/FSLogix/main/Redirections/Redirections.csv-->
+<FrxProfileFolderRedirection ExcludeCommonFolders="0">
+  <Excludes>
+    <!--!Warning - May impact performance of .NET apps-->
+    <Exclude Copy="0">AppData\Local\Assembly</Exclude>
+    <!--Remove if you need to keep crash dumps for troubleshooting-->
+    <Exclude Copy="0">AppData\Local\CrashDumps</Exclude>
+    <!--Google Chrome browser cache for the primary profile - size can also be managed via policy-->
+    <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Cache</Exclude>
+    <!--!Warning - Google Chrome WebAssembly cache for the primary profile - May impact performance of apps that use WebAssembly-->
+    <Exclude Copy="0">AppData\Local\Google\Edge\User Data\Default\Code Cache</Exclude>
+    <!--Microsoft Edge cache for the primary profile - size can also be managed via policy-->
+    <Exclude Copy="0">AppData\Local\Microsoft\Edge\User Data\Default\Cache</Exclude>
+    <!--!Warning - Microsoft Edge WebAssembly cache for the primary profile - May impact performance of apps that use WebAssembly-->
+    <Exclude Copy="0">AppData\Local\Microsoft\Edge\User Data\Default\Code Cache</Exclude>
+    <!--Details: https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup-->
+    <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\media-stack</Exclude>
+    <!--Details: https://techcommunity.microsoft.com/t5/fslogix-blog/teams-setup-rapidly-grows-my-profile-disk/ba-p/1539064-->
+    <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Service Worker</Exclude>
+    <!--Details: https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#non-persistent-setup-->
+    <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\meeting-addin\Cache</Exclude>
+    <!--Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#recommended-for-exclusion-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\Logs</Exclude>
+    <!--Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#recommended-for-exclusion-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\PerfLogs</Exclude>
+    <!--Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#recommended-for-exclusion-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\WebStorage</Exclude>
+    <!--Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#recommended-for-exclusion-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\GPUCache</Exclude>
+    <!--!Warning - Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#review-tradeoff-considerations-requiring-evaluation-and-testing-for-these-environments-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\Service Worker\CacheStorage</Exclude>
+    <!--!Warning - Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#review-tradeoff-considerations-requiring-evaluation-and-testing-for-these-environments-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\Code Cache</Exclude>
+    <!--!Warning - Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#review-tradeoff-considerations-requiring-evaluation-and-testing-for-these-environments-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\IndexedDB</Exclude>
+    <!--!Warning - Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy#review-tradeoff-considerations-requiring-evaluation-and-testing-for-these-environments-->
+    <Exclude Copy="0">AppData\Local\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\EBWebView\WV2Profile_tfw\Cache</Exclude>
+    <!--!Warning - Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy-->
+    <Exclude Copy="0">AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\TempState</Exclude>
+    <!--!Warning - Details: https://learn.microsoft.com/en-us/microsoftteams/new-teams-vdi-requirements-deploy-->
+    <Exclude Copy="0">AppData\Local\Packages\Microsoft.Windows.ShellExperienceHost_cw5n1h2txyewy\TempState</Exclude>
+    <!--Details: https://learn.microsoft.com/en-us/microsoft-365-apps/outlook/get-started/virtualized-desktop-infrastructure-->
+    <Exclude Copy="0">AppData\Local\Microsoft\olk\logs</Exclude>
+    <!--Details: https://learn.microsoft.com/en-us/microsoft-365-apps/outlook/get-started/virtualized-desktop-infrastructure-->
+    <Exclude Copy="0">AppData\Local\Microsoft\olk\EbWebView\default\WebStorage</Exclude>
+    <!--!Warning - Increased app launch time and repeated sign-ins - Details: https://learn.microsoft.com/en-us/microsoft-365-apps/outlook/get-started/virtualized-desktop-infrastructure-->
+    <Exclude Copy="0">AppData\Local\Microsoft\olk\EbWebView\default\IndexedDB</Exclude>
+    <!--!Warning - Increased app launch time and repeated sign-ins - Details: https://learn.microsoft.com/en-us/microsoft-365-apps/outlook/get-started/virtualized-desktop-infrastructure-->
+    <Exclude Copy="0">AppData\Local\Microsoft\olk\EbWebView\default\Local Storage</Exclude>
+    <!--!Warning - Increased app launch time and repeated sign-ins - Details: https://learn.microsoft.com/en-us/microsoft-365-apps/outlook/get-started/virtualized-desktop-infrastructure-->
+    <Exclude Copy="0">AppData\Local\Microsoft\olk\Attachments</Exclude>
+  </Excludes>
+  <Includes />
+</FrxProfileFolderRedirection>
