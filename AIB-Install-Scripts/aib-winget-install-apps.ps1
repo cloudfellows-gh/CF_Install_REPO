@@ -137,3 +137,38 @@ if ($groupMembers -notcontains $userToAdd) {
 } else {
     Write-Log "'$userToAdd' is already a member of group '$groupName'"
 }
+
+################################################################
+#   Enables .NET Framework 3.5 feature
+################################################################
+<#NOTES
+    Author: CloudFellows
+    Date: 28-10-2025
+#>
+
+try {
+    Write-Log "Checking current status of .NET Framework 3.5..."
+    
+    # Check if feature is already enabled
+    $feature = Get-WindowsOptionalFeature -Online -FeatureName NetFx3
+    
+    if ($feature.State -eq "Enabled") {
+        Write-Log ".NET Framework 3.5 is already enabled"
+    } else {
+        Write-Log "Enabling .NET Framework 3.5..."
+        Write-Log "This may take several minutes and may require internet connectivity..."
+        
+        # Enable the feature
+        $result = Enable-WindowsOptionalFeature -Online -FeatureName NetFx3 -All -NoRestart
+        
+        if ($result.RestartNeeded) {
+            Write-Log ".NET Framework 3.5 has been enabled successfully - restart required to complete installation"
+        } else {
+            Write-Log ".NET Framework 3.5 has been enabled successfully - no restart required"
+        }
+    }
+    
+} catch {
+    Write-Log "Failed to enable .NET Framework 3.5: $_"
+    Write-Log "Troubleshooting: Ensure internet connectivity and Windows Update is functioning properly"
+}
